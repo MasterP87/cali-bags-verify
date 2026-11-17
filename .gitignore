@@ -1,0 +1,9 @@
+# System & temporary files
+.DS_Store
+Thumbs.db
+node_modules/
+*.log
+
+# Workspace backup / source archives
+hero-package/
+*.zip

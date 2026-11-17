@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cali Weed — Official QR Product &amp; Bag Verification Portal</title>
+  <meta name="description" content="Official Cali Weed QR product authentication portal. Enter your 6-digit security code to verify authentic California cannabis genetics, mylar bags, and seed batches.">
+  <link rel="icon" type="image/png" href="cali-weed-LOGO.png">
+
+  <!-- Google Fonts: Syne (Display), Plus Jakarta Sans (Body), JetBrains Mono (6-Digit Security Terminal) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Custom Fluid Cursor Follower -->
+  <div class="custom-cursor" id="custom-cursor" aria-hidden="true"></div>
+
+  <!-- ========================================================================
+       FIXED ANIMATED HERO & FULL-PAGE DYNAMIC BACKGROUND
+       ======================================================================== -->
+  <div class="hero-bg-stage" aria-hidden="false">
+    <iframe
+      id="cali-hero-frame"
+      class="hero-bg-iframe"
+      src="assets/cali-weed-hero-v4.html"
+      title="Cali Weed – Animated California Skyline, Swaying Palms, and Sunset Birds"
+      allow="otp-credentials"
+    ></iframe>
+  </div>
+  <div class="hero-bg-vignette" aria-hidden="true"></div>
+
+  <!-- Floating Hero Animation Controller -->
+  <aside class="hero-floating-controls" aria-label="Background Animation Controls">
+    <button type="button" class="hero-ctrl-btn" id="btn-cinema-toggle" title="Toggle full-screen unobstructed view of the hero animation">
+      <span>Cinema View</span>
+    </button>
+    <button type="button" class="hero-ctrl-btn" id="btn-hero-skip">
+      <span>Skip Intro</span>
+    </button>
+    <button type="button" class="hero-ctrl-btn" id="btn-hero-play" aria-pressed="false">
+      <span>Pause</span>
+    </button>
+    <button type="button" class="hero-ctrl-btn" id="btn-hero-restart">
+      <span>Replay Intro</span>
+    </button>
+  </aside>
+
+  <!-- ========================================================================
+       MAIN FOREGROUND WEBSITE CONTENT
+       ======================================================================== -->
+  <div class="site-wrapper" id="site-wrapper">
+
+    <!-- Sticky Glassmorphic Navigation -->
+    <header class="site-header container">
+      <nav class="nav-bar" aria-label="Primary Navigation">
+        <a href="https://cali-weed.com/" class="brand-link" target="_blank" rel="noopener noreferrer">
+          <img src="cali-weed-LOGO.png" alt="Cali Weed Logo" class="brand-logo" width="44" height="44">
+          <div class="brand-text-group">
+            <span class="brand-name">CALI WEED</span>
+            <span class="brand-tag">Official QR Authenticator</span>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#verify">Verify Product</a></li>
+          <li><a href="#security">How It Works</a></li>
+          <li><a href="#strains">California Strains</a></li>
+          <li><a href="#heritage">Our Growers</a></li>
+          <li><a href="#imprint">Contact &amp; Imprint</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button type="button" class="btn btn-outline btn-sm" id="open-codes-manager-btn">
+            Code List (<span id="loaded-codes-count">15</span>)
+          </button>
+          <a href="https://cali-weed.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm magnetic-btn">
+            <span>Visit Cali-Weed.com</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ====================================================================
+           HERO & 6-DIGIT QR CODE VERIFICATION SECTION
+           ==================================================================== -->
+      <section class="hero-section container" id="verify">
+        <div class="hero-grid">
+
+          <!-- Left Column: Brand Headline & QR Welcome -->
+          <div class="hero-copy">
+            <div class="status-pill">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              <span>QR Seal Scanned • Sunny Av., CA 10019</span>
+            </div>
+
+            <h1 class="hero-title reveal-text">
+              Verify Your Authentic <span class="text-gradient">Cali Weed</span> Bag &amp; Genetics.
+            </h1>
+
+            <p class="hero-lead">
+              Welcome to the official <strong>Cali Weed</strong> anti-counterfeit verification portal. Every genuine Cali Weed bag and California seed pack is protected by a serialized QR seal and a unique <strong>6-digit security number</strong>.
+            </p>
+
+            <div class="hero-cta-row">
+              <a href="https://cali-weed.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary magnetic-btn">
+                <span>Explore Official Store (cali-weed.com)</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+              <a href="https://cali-weed.com/cannabis-strains/" target="_blank" rel="noopener noreferrer" class="btn btn-outline magnetic-btn">
+                <span>View Our Strains</span>
+              </a>
+            </div>
+
+            <div class="hero-trust-strip" aria-label="Cali Weed Quality Metrics">
+              <div class="trust-item">
+                <span class="trust-value">10+ Years</span>
+                <span class="trust-label">California Breeding Program</span>
+              </div>
+              <div class="trust-item">
+                <span class="trust-value">100% Lab</span>
+                <span class="trust-label">Verified Seed &amp; Bag Batches</span>
+              </div>
+              <div class="trust-item">
+                <span class="trust-value">6-Digit</span>
+                <span class="trust-label">Serialized Anti-Clone Seal</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: 6-Digit Product Verification Terminal -->
+          <div class="verify-card" id="verify-terminal">
+            <div class="verify-card-header">
+              <span class="verify-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>AUTHENTICITY CHECK</span>
+              </span>
+              <span class="qr-scan-chip" id="qr-status-indicator">READY FOR 6-DIGIT PIN</span>
+            </div>
+
+            <form id="verify-form" action="#verify" method="POST" novalidate>
+              <div class="form-group">
+                <label for="verify-code-input" class="form-label">Enter 6-Digit Product Code</label>
+                <!-- Instructional hint placed ABOVE the input so mobile keyboards & autofill popovers never cover it -->
+                <p id="code-format-hint" class="field-hint">
+                  Locate the 6-digit verification number on your Cali Weed bag or QR security label and enter all 6 digits below.
+                </p>
+
+                <div class="code-input-wrapper">
+                  <input
+                    type="text"
+                    id="verify-code-input"
+                    name="code"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                    enterkeyhint="done"
+                    pattern="\d{6}"
+                    maxlength="6"
+                    placeholder="420710"
+                    aria-describedby="code-format-hint code-error-msg"
+                    required
+                  >
+                  <div class="code-slot-indicators" id="code-slot-indicators" aria-hidden="true">
+                    <span class="slot-bar"></span>
+                    <span class="slot-bar"></span>
+                    <span class="slot-bar"></span>
+                    <span class="slot-bar"></span>
+                    <span class="slot-bar"></span>
+                    <span class="slot-bar"></span>
+                  </div>
+                </div>
+
+                <div id="code-error-msg" class="field-error" role="alert" aria-live="polite"></div>
+              </div>
+
+              <button type="submit" class="btn btn-primary verify-submit-btn magnetic-btn" id="verify-submit-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Verify Authentic Product</span>
+              </button>
+            </form>
+
+            <!-- Live Verification Result Container -->
+            <div id="verification-result-container" aria-live="polite"></div>
+
+            <!-- Quick Sample Codes from codes.js for Immediate Testing -->
+            <div class="demo-codes-box">
+              <div class="demo-codes-Header">
+                <span>Quick-test sample codes from your list:</span>
+                <button type="button" class="code-chip" id="manage-codes-inline-btn">Edit Code List</button>
+              </div>
+              <div class="demo-chips" id="sample-code-chips">
+                <button type="button" class="code-chip" data-sample-code="420710">#420710 (Valid)</button>
+                <button type="button" class="code-chip" data-sample-code="849201">#849201 (Valid)</button>
+                <button type="button" class="code-chip" data-sample-code="104938">#104938 (Valid)</button>
+                <button type="button" class="code-chip" data-sample-code="773829">#773829 (Valid)</button>
+                <button type="button" class="code-chip chip-invalid" data-sample-code="999999">#999999 (Fake Test)</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           HOW IT WORKS — 3-STEP HOLOGRAPHIC BAG SECURITY
+           ==================================================================== -->
+      <section class="section-block container" id="security">
+        <div class="section-header">
+          <span class="section-eyebrow">Anti-Counterfeit Protocol</span>
+          <h2 class="section-title">How Cali Weed Protects Your Packaging &amp; Seeds</h2>
+          <p class="section-desc">
+            Counterfeit bags and imitation seeds flood the market. Our 3-step verification system guarantees that every pack originates directly from our California breeding facility at Sunny Av., CA 10019.
+          </p>
+        </div>
+
+        <div class="bento-grid-3">
+          <article class="glass-card scrolly-card">
+            <span class="step-number">STEP 01 // QR SCAN</span>
+            <h3 class="card-title">Scan the Holographic QR Seal</h3>
+            <p class="card-text">
+              Point your smartphone camera at the serialized QR code printed on your Cali Weed bag or seed pack. It routes you directly to this encrypted verification gateway.
+            </p>
+          </article>
+
+          <article class="glass-card scrolly-card">
+            <span class="step-number">STEP 02 // 6-DIGIT PIN</span>
+            <h3 class="card-title">Enter Your 6-Digit Security Code</h3>
+            <p class="card-text">
+              Scratch off the protective silver micro-layer beneath the QR seal to reveal your unique 6-digit verification number and enter it into the terminal above.
+            </p>
+          </article>
+
+          <article class="glass-card scrolly-card">
+            <span class="step-number">STEP 03 // BATCH TELEMETRY</span>
+            <h3 class="card-title">Instant California Lab Confirmation</h3>
+            <p class="card-text">
+              Our registry cross-references your 6-digit code against our authorized production list and displays the exact strain lineage, breeder sign-off, and official store link.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SIGNATURE CALIFORNIA STRAINS (FROM CALI-WEED.COM)
+           ==================================================================== -->
+      <section class="section-block container" id="strains">
+        <div class="section-header">
+          <span class="section-eyebrow">Experience the Taste of California</span>
+          <h2 class="section-title">Our Popular California Strains</h2>
+          <p class="section-desc">
+            We’re confident you won’t find better seeds or a more reliable supplier anywhere. Explore our flagship California genetics available on <a href="https://cali-weed.com/cannabis-strains/" target="_blank" rel="noopener noreferrer" style="color: var(--cali-neon);">cali-weed.com</a>.
+          </p>
+        </div>
+
+        <div class="strains-grid">
+          <!-- Strain 1: Blue Dream -->
+          <article class="strain-card scrolly-card">
+            <div class="strain-img-wrap">
+              <img src="https://cali-weed.com/wp-content/uploads/2020/09/blue-dream-1.jpg" alt="Blue Dream Cannabis Strain" loading="lazy" width="400" height="400">
+              <span class="strain-price-tag">$16.00</span>
+            </div>
+            <div class="strain-body">
+              <span class="strain-type">Sativa-Dominant Hybrid</span>
+              <h3 class="strain-name">Blue Dream</h3>
+              <p class="strain-desc">
+                This signature cut of Blue Dream is made up of classic Blueberry crossed with a selected Super Silver Haze phenotype.
+              </p>
+              <div class="strain-meta-bar">
+                <span>THC: 24.8%</span>
+                <a href="https://cali-weed.com/blue-dream/" target="_blank" rel="noopener noreferrer" class="strain-link">
+                  <span>View Strain</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Strain 2: Girl Scout Cookies -->
+          <article class="strain-card scrolly-card">
+            <div class="strain-img-wrap">
+              <img src="https://cali-weed.com/wp-content/uploads/2020/09/girl-scout-1.jpg" alt="Girl Scout Cookies Cannabis Strain" loading="lazy" width="400" height="400">
+              <span class="strain-price-tag">$16.00</span>
+            </div>
+            <div class="strain-body">
+              <span class="strain-type">Indica-Dominant Hybrid</span>
+              <h3 class="strain-name">Girl Scout Cookies</h3>
+              <p class="strain-desc">
+                With a sweet and earthy aroma, Girl Scout Cookies launches you to euphoria’s top floor where full-body relaxation meets a time-bending cerebral space.
+              </p>
+              <div class="strain-meta-bar">
+                <span>THC: 27.4%</span>
+                <a href="https://cali-weed.com/girl-scout-cookies/" target="_blank" rel="noopener noreferrer" class="strain-link">
+                  <span>View Strain</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Strain 3: Cali Glue -->
+          <article class="strain-card scrolly-card">
+            <div class="strain-img-wrap">
+              <img src="https://cali-weed.com/wp-content/uploads/2020/09/cali-glue-1.jpg" alt="Cali Glue Gorilla Glue #4 Strain" loading="lazy" width="400" height="400">
+              <span class="strain-price-tag">$16.00</span>
+            </div>
+            <div class="strain-body">
+              <span class="strain-type">Indica-Dominant (GG #4)</span>
+              <h3 class="strain-name">Cali Glue</h3>
+              <p class="strain-desc">
+                An indica-dominant strain, Cali Glue (aka Gorilla Glue #4) is known for its intense cerebral high, fast-acting relief, and heavy resin profile.
+              </p>
+              <div class="strain-meta-bar">
+                <span>THC: 29.1%</span>
+                <a href="https://cali-weed.com/cali-glue/" target="_blank" rel="noopener noreferrer" class="strain-link">
+                  <span>View Strain</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Strain 4: Sunset Sherbet -->
+          <article class="strain-card scrolly-card">
+            <div class="strain-img-wrap">
+              <img src="https://cali-weed.com/wp-content/uploads/2020/09/sunset-1.jpg" alt="Sunset Sherbet Cannabis Strain" loading="lazy" width="400" height="400">
+              <span class="strain-price-tag">$21.50</span>
+            </div>
+            <div class="strain-body">
+              <span class="strain-type">Indica-Dominant Reserve</span>
+              <h3 class="strain-name">Sunset Sherbet</h3>
+              <p class="strain-desc">
+                Sunset Sherbet is a notorious indica-dominant hybrid with a deep full-body effect that is descendant from the popular Girl Scout Cookies.
+              </p>
+              <div class="strain-meta-bar">
+                <span>THC: 26.6%</span>
+                <a href="https://cali-weed.com/sunset-sherbet/" target="_blank" rel="noopener noreferrer" class="strain-link">
+                  <span>View Strain</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div style="margin-top: 2.25rem; text-align: center;">
+          <a href="https://cali-weed.com/cannabis-strains/" target="_blank" rel="noopener noreferrer" class="btn btn-primary magnetic-btn">
+            <span>Browse Full Catalog at Cali-Weed.com</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           OUR HERITAGE & MASTER GROWERS
+           ==================================================================== -->
+      <section class="section-block container" id="heritage">
+        <div class="heritage-layout">
+          <div class="glass-card story-prose scrolly-card">
+            <span class="section-eyebrow">Welcome to Cali Weed</span>
+            <h2 class="section-title">A Decade of Meticulous California Breeding</h2>
+            <p class="card-text">
+              Ten years ago, we decided to reduce the “risk factor” when it came to supplying cannabis seeds. As a distributor and supplier, being wholly dependent on third-party growers meant quality control was never guaranteed.
+            </p>
+            <p class="card-text">
+              We decided to invest in the long term and began a slow, meticulous breeding program in California—concentrating on developing the “best of the best” across select signature varieties. After six years of research, we began supplying seeds harvested exclusively from our own master plants.
+            </p>
+            <p class="card-text">
+              The reality is that it’s not uncommon for the modern cannabis grower to have an extensive background in horticulture, commercial farming, or a formal degree in plant science. Every verified bag and seed pack carries our uncompromising California guarantee.
+            </p>
+
+            <div class="grower-highlight">
+              <div>
+                <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--cali-neon); text-transform: uppercase;">Lead Horticulture &amp; Plant Science</div>
+                <div style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800;">Vanessa Malwin</div>
+                <div style="font-size: 0.85rem; color: var(--text-secondary);">Master Breeder • Cali Weed California</div>
+              </div>
+              <a href="https://cali-weed.com/retailer-info/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                Retailer Info
+              </a>
+            </div>
+          </div>
+
+          <div class="glass-card heritage-visual-card scrolly-card">
+            <div>
+              <span class="verify-badge">HIGH-RESOLUTION SEAL</span>
+              <h3 class="card-title" style="margin-top: 0.75rem;">Original California Emblem</h3>
+            </div>
+            <img src="cali-weed-hochaufloesend.png" alt="Cali Weed High Resolution Emblem" class="heritage-crest-img" loading="lazy">
+            <p class="card-text">
+              Our animated skyline and palm crest is rendered directly from the original high-resolution Cali Weed master artwork.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CONTACT US, OPENING HOURS & IMPRINT (FROM PROJECT IMAGES)
+           ==================================================================== -->
+      <section class="section-block container" id="imprint">
+        <div class="section-header">
+          <span class="section-eyebrow">Official Corporate Information &amp; Imprint</span>
+          <h2 class="section-title">Contact Us, Opening Hours &amp; Legal Notice</h2>
+          <p class="section-desc">
+            Direct corporate contact details, showroom operating hours, and official imprint data for <strong>Cali Weed</strong> (<a href="https://cali-weed.com/" target="_blank" rel="noopener noreferrer" style="color: var(--cali-neon);">https://cali-weed.com/</a>).
+          </p>
+        </div>
+
+        <!-- 4-Column Imprint Data Grid matching screenshot_2026-11-09_17-37-10.png -->
+        <div class="imprint-grid">
+          <!-- Address -->
+          <article class="glass-card imprint-item-card scrolly-card">
+            <div class="imprint-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h3 class="card-title">ADDRESS</h3>
+            <p class="card-text" style="font-weight: 600; color: var(--text-primary);">
+              SUNNY AV.<br>
+              CA 10019<br>
+              United States
+            </p>
+          </article>
+
+          <!-- Opening Hours -->
+          <article class="glass-card imprint-item-card scrolly-card">
+            <div class="imprint-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3 class="card-title">WE ARE OPEN</h3>
+            <p class="card-text">
+              Monday - Friday 9am - 10pm<br>
+              Sunday 10am - 7pm<br>
+              Saturday 10pm - 4am
+            </p>
+          </article>
+
+          <!-- Contact Us -->
+          <article class="glass-card imprint-item-card scrolly-card">
+            <div class="imprint-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <h3 class="card-title">CONTACT US</h3>
+            <p class="card-text">
+              <a href="mailto:info@cali-weed.com" style="color: var(--cali-neon); font-weight: 700; text-decoration: none;">info@cali-weed.com</a><br>
+              <a href="https://cali-weed.com/contact-us/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.85rem;">Official Contact Form →</a>
+            </p>
+          </article>
+
+          <!-- Social -->
+          <article class="glass-card imprint-item-card scrolly-card">
+            <div class="imprint-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3 class="card-title">SOCIAL</h3>
+            <div class="social-links-row">
+              <a href="https://cali-weed.com/" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="Cali Weed on Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+              </a>
+              <a href="https://cali-weed.com/" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="Cali Weed on Twitter">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                </svg>
+              </a>
+              <a href="https://cali-weed.com/" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="Cali Weed on Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Embedded Original Imprint Image & Official Website Reference Card -->
+        <div class="glass-card imprint-showcase-banner scrolly-card">
+          <div>
+            <span class="verify-badge">OFFICIAL IMPRINT RECORD</span>
+            <h3 class="card-title" style="margin-top: 0.65rem;">Verified Legal Notice &amp; Storefront</h3>
+            <p class="card-text" style="margin-bottom: 1.15rem;">
+              The official corporate imprint and contact record is archived both as structured data above and in the original reference image from our project documentation.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+              <button type="button" class="btn btn-outline btn-sm" id="open-imprint-dialog-btn">
+                View Full Legal Notice &amp; Imprint
+              </button>
+              <a href="https://cali-weed.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                Go to Cali-Weed.com
+              </a>
+            </div>
+          </div>
+          <div>
+            <img
+              src="screenshot_2026-11-09_17-37-10.png"
+              alt="Cali Weed Official Imprint: Address Sunny Av. CA 10019, Opening Hours Monday-Friday 9am-10pm, Sunday 10am-7pm, Saturday 10pm-4am, Contact info@cali-weed.com"
+              class="imprint-source-img"
+              loading="lazy"
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ====================================================================
+         FOOTER
+         ==================================================================== -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div style="display: flex; align-items: center; gap: 0.85rem;">
+          <img src="cali-weed-LOGO.png" alt="Cali Weed" width="38" height="38" style="border-radius: 50%;">
+          <div>
+            <div style="font-family: var(--font-display); font-weight: 800;">CALI WEED • CALIFORNIA</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">© 2026 Cali Weed (SUNNY AV., CA 10019). All rights reserved.</div>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="https://cali-weed.com/" target="_blank" rel="noopener noreferrer">Official Website</a>
+          <a href="https://cali-weed.com/cannabis-strains/" target="_blank" rel="noopener noreferrer">Cannabis Strains</a>
+          <a href="https://cali-weed.com/retailer-info/" target="_blank" rel="noopener noreferrer">Retailer Info</a>
+          <a href="https://cali-weed.com/contact-us/" target="_blank" rel="noopener noreferrer">Contact Us</a>
+          <button type="button" id="footer-imprint-btn">Imprint &amp; Legal Notice</button>
+          <button type="button" id="footer-codes-btn">6-Digit Code List Manager</button>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ========================================================================
+       MODAL DIALOG 1: OFFICIAL IMPRINT & LEGAL NOTICE
+       (modern-web-guidance: dialog & light-dismiss-a-dialog)
+       ======================================================================== -->
+  <dialog id="imprint-dialog" closedby="any" aria-labelledby="imprint-dialog-title">
+    <div class="dialog-header">
+      <h2 class="dialog-title" id="imprint-dialog-title">Legal Notice &amp; Official Imprint</h2>
+      <form method="dialog">
+        <button type="submit" class="btn btn-outline btn-sm" aria-label="Close Legal Notice Dialog">Close ✕</button>
+      </form>
+    </div>
+    <div class="dialog-body">
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        Official corporate details and legal disclosures for <strong>Cali Weed</strong> (<a href="https://cali-weed.com/" target="_blank" rel="noopener noreferrer" style="color: var(--cali-neon);">https://cali-weed.com/</a>):
+      </p>
+
+      <div class="telemetry-grid" style="margin-bottom: 1.25rem;">
+        <div class="telemetry-cell">
+          <span class="telemetry-key">Headquarters Address</span>
+          <span class="telemetry-val">SUNNY AV., CA 10019, USA</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="telemetry-key">Electronic Contact</span>
+          <span class="telemetry-val">info@cali-weed.com</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="telemetry-key">Opening Hours (Mon–Fri)</span>
+          <span class="telemetry-val">9:00 AM – 10:00 PM</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="telemetry-key">Weekend Hours</span>
+          <span class="telemetry-val">Sun 10am–7pm | Sat 10pm–4am</span>
+        </div>
+      </div>
+
+      <h3 style="font-family: var(--font-display); font-size: 1.05rem; margin-bottom: 0.5rem;">Original Imprint Sheet</h3>
+      <img
+        src="screenshot_2026-11-09_17-37-10.png"
+        alt="Cali Weed Imprint Details"
+        class="imprint-source-img"
+        style="margin-bottom: 1rem;"
+      >
+
+      <h3 style="font-family: var(--font-display); font-size: 1.05rem; margin-bottom: 0.5rem;">Official Storefront Banner</h3>
+      <img
+        src="screenshot_2026-11-09_16-19-50.png"
+        alt="Welcome Cali Weed Banner"
+        style="width: 100%; border-radius: 12px; border: 1px solid var(--border-subtle);"
+      >
+    </div>
+    <div class="dialog-footer">
+      <a href="https://cali-weed.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit Cali-Weed.com</a>
+      <form method="dialog">
+        <button type="submit" class="btn btn-outline btn-sm" autofocus>Done</button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- ========================================================================
+       MODAL DIALOG 2: 6-DIGIT CODE LIST MANAGER
+       Allows inspecting, pasting, uploading, or exporting the 6-digit code list
+       ======================================================================== -->
+  <dialog id="codes-dialog" closedby="any" aria-labelledby="codes-dialog-title">
+    <div class="dialog-header">
+      <h2 class="dialog-title" id="codes-dialog-title">6-Digit Verification Code List</h2>
+      <form method="dialog">
+        <button type="submit" class="btn btn-outline btn-sm" aria-label="Close Code List Manager">Close ✕</button>
+      </form>
+    </div>
+    <div class="dialog-body">
+      <p style="font-size: 0.92rem; color: var(--text-secondary);">
+        Paste your 6-digit product codes below (one per line, space-separated, or comma-separated), or edit <code>codes.js</code> directly in the project folder. Changes made here are active immediately and can be downloaded as a ready-to-use <code>codes.js</code> file.
+      </p>
+
+      <label for="custom-codes-textarea" style="display: block; font-weight: 700; margin-top: 1rem;">
+        Active 6-Digit Codes (<span id="modal-codes-count">15</span> valid codes loaded):
+      </label>
+      <textarea id="custom-codes-textarea" class="codes-textarea" spellcheck="false" aria-describedby="codes-manager-hint"></textarea>
+      <p id="codes-manager-hint" style="font-size: 0.8rem; color: var(--text-muted);">
+        Only 6-digit numeric strings (e.g. <code>420710</code>, <code>004200</code>) are indexed. Leading zeros are preserved.
+      </p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1rem;">
+        <button type="button" class="btn btn-primary btn-sm" id="save-codes-btn">Apply Code List Now</button>
+        <button type="button" class="btn btn-outline btn-sm" id="download-codes-js-btn">Download Updated codes.js</button>
+        <button type="button" class="btn btn-outline btn-sm" id="reset-codes-btn">Reset to Default List</button>
+      </div>
+    </div>
+    <div class="dialog-footer">
+      <form method="dialog">
+        <button type="submit" class="btn btn-outline btn-sm" autofocus>Close</button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Scripts: GSAP + ScrollTrigger, Lenis Smooth Scroll, Codes List, Main App -->
+  <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.36/dist/lenis.min.js"></script>
+  <script src="codes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
