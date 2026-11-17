@@ -16,6 +16,9 @@
 </head>
 <body>
 
+  <!-- Fullscreen Fireworks Particle Canvas -->
+  <canvas id="fireworks-canvas"></canvas>
+
   <!-- Background Animated Hero Stage -->
   <div class="hero-stage">
     <iframe
@@ -42,34 +45,51 @@
     Skip to Verification ➔
   </button>
 
-  <!-- Verified Authentic Hologram Screen (Reveals After Animation) -->
+  <!-- Verification Overlay Screen -->
   <div class="verification-overlay" id="verification-overlay">
     <div class="card-backdrop"></div>
 
-    <article class="cert-card" role="region" aria-label="Authenticity Certificate">
+    <article class="cert-card" id="cert-card" role="region" aria-label="Authenticity Certificate">
       
-      <!-- Animated Checkmark Holographic Seal -->
-      <div class="badge-container">
-        <div class="badge-pulse"></div>
-        <div class="badge-circle">
-          <svg class="badge-svg" viewBox="0 0 52 52">
-            <circle class="checkmark-circle" cx="26" cy="26" r="23"/>
-            <path class="checkmark-check" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+      <!-- Circular Progress Ring -> Verified Checkmark -->
+      <div class="progress-dial-wrapper">
+        <div class="dial-ambient-glow" id="dial-glow"></div>
+        <svg class="dial-svg" viewBox="0 0 140 140">
+          <defs>
+            <linearGradient id="dial-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8"/>
+              <stop offset="60%" stop-color="#00ed00"/>
+              <stop offset="100%" stop-color="#fbbf24"/>
+            </linearGradient>
+          </defs>
+          <circle class="dial-track" cx="70" cy="70" r="60"/>
+          <circle class="dial-fill" id="dial-fill" cx="70" cy="70" r="60"/>
+        </svg>
+
+        <div class="dial-center-content">
+          <!-- State 1: Active Progress Percentage -->
+          <div class="dial-percent-text" id="dial-percent">0%</div>
+          <div class="dial-percent-sub" id="dial-sub">Scanning</div>
+
+          <!-- State 2: Checkmark upon reaching 100% -->
+          <svg class="dial-checkmark-icon" id="dial-check" viewBox="0 0 52 52">
+            <path class="check-svg-path" d="M14 27l8 8 16-16"/>
           </svg>
         </div>
       </div>
 
-      <div class="status-pill">
+      <!-- Status Pill -->
+      <div class="status-pill" id="status-pill">
         <span class="pulse-dot"></span>
-        <span>Original Product Verified</span>
+        <span id="status-text">Verifying Security Seal...</span>
       </div>
 
-      <h1 class="cert-title">
-        <span>Authentic Cali Weed</span>
+      <h1 class="cert-title" id="cert-title">
+        <span id="title-text">Authenticating Product</span>
       </h1>
 
-      <p class="cert-desc">
-        Your packaging QR security seal has been successfully verified. This product is an authentic, laboratory-tested California original.
+      <p class="cert-desc" id="cert-desc">
+        Connecting to the official California security register to validate your product's holographic packaging seal...
       </p>
 
       <!-- Batch & Laboratory Telemetry -->
@@ -79,36 +99,26 @@
           <span class="telemetry-value" id="cert-id">CW-CA-849201</span>
         </div>
         <div class="telemetry-item">
-          <span class="telemetry-label">Status</span>
-          <span class="telemetry-value" style="color: var(--cali-neon);">100% Genuine</span>
+          <span class="telemetry-label">Product Status</span>
+          <span class="telemetry-value" id="status-val" style="color: var(--cali-gold);">Pending Verification</span>
         </div>
         <div class="telemetry-item">
           <span class="telemetry-label">California Facility</span>
           <span class="telemetry-value">Sunny Av., CA 10019</span>
         </div>
         <div class="telemetry-item">
-          <span class="telemetry-label">Verified At</span>
+          <span class="telemetry-label">Timestamp</span>
           <span class="telemetry-value" id="verified-timestamp">Nov 17, 2026</span>
         </div>
       </div>
 
-      <!-- Auto-Redirect Countdown & Direct Action Button -->
-      <div class="redirect-wrapper">
-        <p class="redirect-notice">
-          Redirecting to official homepage in <strong id="countdown-seconds">6</strong>s...
-        </p>
-
-        <div class="progress-track" aria-hidden="true">
-          <div class="progress-fill" id="progress-fill"></div>
-        </div>
-
-        <a href="https://cali-weed.com/" class="redirect-btn" id="redirect-btn">
-          <span>Continue to Cali-Weed.com Now</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
+      <!-- Direct Official Website Button -->
+      <a href="https://cali-weed.com/" class="redirect-btn" id="redirect-btn">
+        <span>Visit Official Store (cali-weed.com)</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
 
     </article>
   </div>
